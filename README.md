@@ -68,10 +68,12 @@ We provide pretrained models for all experiments in the paper. These can be foun
 ## Citation
 If you like our work, please consider citing our paper:
 ```
-@inproceedings{sick2024unsupervised,
-  title={Unsupervised Semantic Segmentation Through Depth-Guided Feature Distillation and Sampling},
-  author={Leon Sick, Dominik Engel, Pedro Hermosilla, Timo Ropinski},
-  booktitle={CVPR},
-  year={2024}
+@InProceedings{Sick_2024_CVPR,
+    author    = {Sick, Leon and Engel, Dominik and Hermosilla, Pedro and Ropinski, Timo},
+    title     = {Unsupervised Semantic Segmentation Through Depth-Guided Feature Correlation and Sampling},
+    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+    month     = {June},
+    year      = {2024},
+    pages     = {3637-3646}
 }
 ```
