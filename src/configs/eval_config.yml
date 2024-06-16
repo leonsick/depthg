@@ -1,0 +1,26 @@
+output_root: '/path/to/your/outputs/'
+data_dir: '/path/to/your/data/'
+
+experiment_name: "cocostuff"
+res: 320
+batch_size: 4
+num_workers: 4
+run_picie: False
+run_crf: True
+run_prediction: True
+dark_mode: True
+use_ddp: False
+
+# nice.ckpt and stego_baseline ckpt for qualitative eval
+model_paths:
+  - "/home/checkpoints/potsdam_vits.ckpt"
+  - "/home/checkpoints/cityscapes_vitb.ckpt"
+  - "/home/checkpoints/cocostuff_vits.ckpt"
+  - "/home/checkpoints/cocostuff_vitb.ckpt"
+
+hydra:
+  run:
+    dir: "."
+  output_subdir: ~
+  #job_logging: "disabled"
+  #hydra_logging: "disabled"

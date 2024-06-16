@@ -1,0 +1,138 @@
+output_root: '/path/to/your/outputs/'
+data_dir: '/path/to/your/data'
+experiment_name: "exp1"
+log_dir: "cocostuff27"
+
+generate_depth: True
+fps_gpu: False
+
+use_depth: True
+depth_type: "zoedepth"
+
+use_depth_only_intra: False
+
+guidance: "none"
+
+depth_feat_correlation_loss: True
+depth_loss_decay: False
+fix_depth_feat_shift: False
+decay_every_steps: 300
+
+fps_until_step: 0
+post_fps_samples: 11
+fps_sample_decay: False
+fps_sample_decay_every_steps: 300
+fps_sample_decay_factor: 0.9
+fps_min_samples: 0
+
+depth_sampling: "fps"
+
+lhp: False
+propagation_strategy: "depth"
+lhp_weight: 0.2
+lhp_depth_weight: 1.0
+lhp_weight_balance: False
+
+gpus: 1
+wandb_logging: True
+
+# Loader params
+num_workers: 8
+max_steps: 7000
+# max_steps: 7000 for ViT-B
+batch_size: 32
+
+num_neighbors: 7
+dataset_name: "cocostuff27"
+
+# Used if dataset_name is "directory"
+dir_dataset_name: ~
+dir_dataset_n_classes: 5
+
+has_labels: False
+crop_type: "five"
+crop_ratio: .5
+res: 224
+loader_crop_type: "center"
+
+# Model Params
+extra_clusters: 0
+use_true_labels: False
+use_recalibrator: False
+model_type: "vit_small"
+arch: "dino"
+use_fit_model: False
+dino_feat_type: "feat"
+projection_type: "nonlinear"
+dino_patch_size: 8
+granularity: 1
+continuous: True
+dim: 70
+# For ViT-B set to 90
+dropout: True
+zero_clamp: True
+
+lr: 5e-4
+pretrained_weights: ~
+use_salience: False
+stabalize: False
+stop_at_zero: True
+
+# Feature Contrastive params
+pointwise: True
+# For Cityscapes set pointwise: False
+feature_samples: 11
+neg_samples: 5
+aug_alignment_weight: 0.0
+
+correspondence_weight: 1.0
+
+
+# Parameters
+
+# COCOStuff ViT-S
+neg_inter_weight: 0.63 #0.79
+pos_inter_weight: 0.25 #0.28
+pos_intra_weight: 0.67 #0.69
+neg_inter_shift: 0.66 #0.70
+pos_inter_shift: 0.02 #0.02
+pos_intra_shift: 0.08 #0.07
+depth_feat_weight: 0.0
+depth_feat_shift: 0.0
+depth_loss_decay_factor: 1.0
+
+depth_weight_decay_min: 0.0
+depth_shift_decay_min: 0.0
+
+
+rec_weight: 0.0
+repulsion_weight: 0.0
+
+# CRF Params
+crf_weight: 0.0
+alpha: .5
+beta: .15
+gamma: .05
+w1: 10.0
+w2: 3.0
+shift: 0.00
+crf_samples: 1000
+color_space: "rgb"
+
+
+reset_probe_steps: ~
+
+# Logging params
+n_images: 5
+scalar_log_freq: 10
+checkpoint_freq: 50
+val_freq: 100
+hist_freq: 100
+
+
+hydra:
+  run:
+    dir: "."
+  output_subdir: ~
+  #job_logging: "disabled"
+  #hydra_logging: "disabled"
